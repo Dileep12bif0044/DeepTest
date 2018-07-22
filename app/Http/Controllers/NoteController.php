@@ -64,8 +64,8 @@ class NoteController extends Controller
      */
     public function show(Request $request, $id, $slug='')
     {
-        event(new UserViewNote($id, $slug));
         if ($id || $slug) {
+            event(new UserViewNote($id, $slug));
             $note = Note::join('users', 'users.id', '=', 'notes.user_id')
                         ->where('notes.id', $id)
                         ->orWhere('notes.slug', $slug)
