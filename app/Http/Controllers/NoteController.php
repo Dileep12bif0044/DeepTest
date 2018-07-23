@@ -21,7 +21,7 @@ class NoteController extends Controller
 
     public function index()
     {
-        $notes = Note::latest('updated_at', 'DESC')->limit(5)->get();
+        $notes = Note::latest()->limit(5)->get();
         return view('welcome', compact('notes', $notes));
     }
 

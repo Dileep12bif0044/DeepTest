@@ -34,7 +34,7 @@ class HomeController extends Controller
     */
     public function index()
     {
-        $notes = Note::where('user_id', auth()->id())->latest('updated_at', 'DESC')->get();
+        $notes = Note::where('user_id', auth()->id())->latest(/*'updated_at', 'DESC'*/)->get();
         return view('all-notes', compact('notes', $notes));
     }
 }
