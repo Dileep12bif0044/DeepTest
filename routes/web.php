@@ -16,6 +16,7 @@ Route::get('/', 'NoteController@index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@home')->name('home');
+
 Route::group(['middleware' => 'auth'], function () {
 	Route::get('/show/{id}/{slug?}', 'NoteController@show')->name('notes.show');
 	Route::get('/index', 'HomeController@index')->name('home.index');
@@ -25,6 +26,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('/edit/{note}', 'NoteController@update')->name('notes.update');
 	Route::get('/destroy/{note}', 'NoteController@destroy')->name('notes.destroy');
 });
+
 Route::get('/{query}', function(){
 	return view('not-found');
 });

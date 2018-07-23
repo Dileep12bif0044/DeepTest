@@ -47,11 +47,6 @@ class UserCount
             if (!$flag) {
                 $note2 [] = (string)auth()->id();
             }
-            /*if(in_array((string)auth()->id(), $note2)) {
-                dd("dileep");
-                $note2 [] = (string)auth()->id();
-            }*/
-                // dd("kumar");
         }
 
         $note->users_views = json_encode($note2);
